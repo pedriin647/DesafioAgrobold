@@ -12,13 +12,17 @@ class ClientController extends RenderView{
     ]);
     }
 
+    public function getAll(){
+        $clients = new ClientModel();
+        echo  json_encode($clients->fetch());
+    }
+
     public function fetchById($id){
 
         $id_client = $id[0];
 
         $client = new ClientModel();
-
-        $this->loadView("edit", ['client' => $client->fetchById($id_client)]);
+        echo json_encode($client->fetchById($id_client));
     }
 
     public function create(){
@@ -30,7 +34,7 @@ class ClientController extends RenderView{
         $client->password = $_POST['password'];
         $client->create();
     }
-        header("Location: /DesafioAgrobold");
+        echo json_encode(true);
     }
 
     public function update(){
@@ -43,7 +47,7 @@ class ClientController extends RenderView{
             $client->update();
         }
 
-        header("Location: /DesafioAgrobold");
+        echo json_encode(true);
     }
 
     public function destroy($id){
@@ -51,8 +55,8 @@ class ClientController extends RenderView{
         $client = new ClientModel();
 
         $client->destroy($id_client);
-    
-        header("Location: /DesafioAgrobold");
+
+        echo json_encode(true);
     }
 
 }
