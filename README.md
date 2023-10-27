@@ -14,7 +14,7 @@
 
 As seguintes ferramentas estão sendo usadas na construção do projeto:
 
-- [Php](#)
+- [Php 8.2.4](#)
 - [Mysql](#)
 - [Html](#)
 - [Css](#)
